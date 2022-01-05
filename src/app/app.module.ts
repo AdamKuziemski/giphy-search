@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppComponent } from './app.component';
+import { GiphyModule } from './giphy/giphy.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    GiphyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
