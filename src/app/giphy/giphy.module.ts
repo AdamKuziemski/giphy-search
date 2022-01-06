@@ -9,7 +9,6 @@ import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchService } from './search.service';
 
-
 @NgModule({
   declarations: [
     SearchComponent,
