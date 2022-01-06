@@ -1,1 +1,12 @@
-<img *ngFor="let gif of results$ | async" [src]="gif">
+<div class="result-grid">
+  <img *ngFor="let gif of (results$ | async)" [src]="gif">
+</div>
+<ngb-pagination
+  *ngIf="totalResults$ | async as totalResults"
+  [ellipses]="true"
+  [maxSize]="5"
+  [page]="page"
+  [pageSize]="9"
+  [collectionSize]="totalResults || 0"
+  (pageChange)="setPage($event)"
+></ngb-pagination>
