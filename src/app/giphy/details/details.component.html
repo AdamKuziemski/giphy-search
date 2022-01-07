@@ -8,19 +8,17 @@
   <div class="original-image">
     <img [src]="gif.images.original.url">
   </div>
-  <div class="col-sm">
-    <div class="row">
-      <div class="col-sm">
-        <p class="label">User</p>
-        <p>{{ gif.username }}</p>
-      </div>
-      <div class="col-sm">
-        <p class="label">Rating</p>
-        <p>{{ gif.rating }}</p>
-      </div>
+  <div class="row">
+    <div class="col-sm">
+      <p class="label">User</p>
+      <p>{{ gif.username }}</p>
     </div>
-
-    <p class="label">Url</p>
-    <a [href]="gif.url" target="blank">{{ gif.url }}</a>
+    <div class="col-sm">
+      <p class="label">Rating</p>
+      <p>{{ gif.rating }}</p>
+    </div>
   </div>
+
+  <p class="label">Url</p>
+  <a [href]="gif.url" target="blank">{{ gif.url }}</a>
 </div>
