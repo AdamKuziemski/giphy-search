@@ -56,7 +56,7 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.ts": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,css,md,ts}": "prettier --write"
   },
   "prettier": {
     "trailingComma": "es5",
