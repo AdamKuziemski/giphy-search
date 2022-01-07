@@ -8,10 +8,10 @@ import type { SearchResponse } from './model/search-response';
 
 const API_KEY = 'zGJIF4jNJPd5kJLcrVg67N3Dtui9A6Zh';
 const RESULTS_PER_PAGE = 9;
-const SEARCH_API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${RESULTS_PER_PAGE}`;
+export const SEARCH_API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${RESULTS_PER_PAGE}`;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SearchService {
   results$!: Observable<Gif[]>;
@@ -23,20 +23,18 @@ export class SearchService {
   private search$!: Observable<SearchResponse>;
 
   constructor(private http: HttpClient) {
-    this.search$ = combineLatest([
-      this.query$,
-      this.offset$
-    ]).pipe(
+    this.search$ = combineLatest([this.query$, this.offset$]).pipe(
       switchMap(([query, offset]) => this.http.get<SearchResponse>(`${SEARCH_API_URL}&q=${query}&offset=${offset}`)),
+      shareReplay(1)
     );
 
     this.totalResults$ = this.search$.pipe(
-      map(searchResult => searchResult.pagination.total_count),
+      map((searchResult) => searchResult.pagination.total_count),
       shareReplay(1)
     );
 
     this.results$ = this.search$.pipe(
-      map(searchResult => searchResult.data),
+      map((searchResult) => searchResult.data),
       shareReplay(1)
     );
   }
