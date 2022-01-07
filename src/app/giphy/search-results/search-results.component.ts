@@ -15,7 +15,7 @@ export class SearchResultsComponent implements OnDestroy, OnInit {
   page = 1;
 
   destroyed$: Subject<void> = new Subject();
-
+ 
   constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
