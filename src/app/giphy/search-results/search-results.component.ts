@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { filter, Observable, Subject, takeUntil } from 'rxjs';
 import { DetailsComponent } from '../details/details.component';
