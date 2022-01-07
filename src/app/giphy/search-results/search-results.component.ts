@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 import { filter, Observable, Subject, takeUntil } from 'rxjs';
+import { DetailsComponent } from '../details/details.component';
 
+import type { Gif } from '../model/gif';
 import { SearchService } from '../search.service';
 
 @Component({
@@ -10,13 +13,16 @@ import { SearchService } from '../search.service';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnDestroy, OnInit {
-  results$!: Observable<string[]>;
+  results$!: Observable<Gif[]>;
   totalResults$!: Observable<number>;
   page = 1;
 
   destroyed$: Subject<void> = new Subject();
  
-  constructor(private searchService: SearchService) { }
+  constructor(
+    private searchService: SearchService,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
     this.results$ = this.searchService.results$;
@@ -38,4 +44,8 @@ export class SearchResultsComponent implements OnDestroy, OnInit {
     this.searchService.paginate(this.page - 1);
   }
 
+  showModal(gif: Gif): void {
+    const modalRef = this.modalService.open(DetailsComponent);
+    modalRef.componentInstance.gif = gif;
+  }
 }

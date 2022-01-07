@@ -8,13 +8,26 @@
   display: grid;
   grid-gap: 16px;
   justify-items: center;
+  max-width: 650px;
+  margin: 0 auto;
   
-  @media only screen and (min-width: 648px) {
+  @media only screen and (min-width: 450px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 650px) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .gif-fake-crop {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 200px;
+  }
+
+  .giphy-image {
+    cursor: pointer;
   }
 }
 

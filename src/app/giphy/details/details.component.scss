@@ -1,0 +1,17 @@
+.original-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+}
+
+.label {
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 4px;
+}

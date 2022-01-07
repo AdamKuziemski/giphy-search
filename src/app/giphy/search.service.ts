@@ -14,7 +14,7 @@ const SEARCH_API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&
   providedIn: 'root'
 })
 export class SearchService {
-  results$!: Observable<string[]>;
+  results$!: Observable<Gif[]>;
   totalResults$!: Observable<number>;
 
   query$: Subject<string> = new Subject();
@@ -36,7 +36,7 @@ export class SearchService {
     );
 
     this.results$ = this.search$.pipe(
-      map(searchResult => searchResult.data.map((gif: Gif) => gif.images.fixed_height.url)),
+      map(searchResult => searchResult.data),
       shareReplay(1)
     );
   }

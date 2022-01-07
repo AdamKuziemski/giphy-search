@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <p class="modal-title" id="modal-basic-title">{{ gif.title }}</p>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="original-image">
+    <img [src]="gif.images.original.url">
+  </div>
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-sm">
+        <p class="label">User</p>
+        <p>{{ gif.username }}</p>
+      </div>
+      <div class="col-sm">
+        <p class="label">Rating</p>
+        <p>{{ gif.rating }}</p>
+      </div>
+    </div>
+
+    <p class="label">Url</p>
+    <a [href]="gif.url" target="blank">{{ gif.url }}</a>
+  </div>
+</div>

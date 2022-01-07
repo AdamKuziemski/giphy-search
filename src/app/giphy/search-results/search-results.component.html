@@ -1,5 +1,10 @@
 <div *ngIf="results$ | async as results; else placeholder" class="result-grid">
-  <img *ngFor="let gif of (results$ | async)" [src]="gif">
+  <div *ngFor="let gif of results$ | async" class="gif-fake-crop">
+    <img
+      [src]="gif.images.fixed_height.url"
+      class="giphy-image"
+      (click)="showModal(gif)">
+  </div>
 </div>
 <ngb-pagination
   *ngIf="totalResults$ | async as totalResults"
